@@ -8,15 +8,20 @@ import java.util.Scanner;
 public class Promedio {
     
     public static void main(String [] args) throws IOException{
+        //Instanciamos el objeto de tipo Promedio
         Promedio promedio = new Promedio();
-        
+
+        //Llamamos al metodo con el objeto creado
         promedio.Menu();
     }
-    
+
+    //Variables generales para su correspondiente uso en todo el proceso del código
     Scanner input = new Scanner(System.in);
     float nota1 = 0, nota2 = 0, nota3 = 0, promedio = 0;
     int opcMenu = 0;
-    
+
+    //Método para ingresar notas y validar respectivamente
+    //Tambien valida si aprueba o no aprueba
     public void ingresarNotas(){
         System.out.print("Ingrese calificacion 1: ");
         nota1 = input.nextFloat();
@@ -48,18 +53,23 @@ public class Promedio {
         }
         
     }
-    
+
+    //Método para sacar el promedio y usarlo dentro del método ingresarNotas
     public float Promedio(){
         promedio = (nota1+nota2+nota3)/3;
         return promedio;
     }
-    
+
+    //Este método retorna las calificaciones con su respetivos promedios correspondientes para poder
+    //realizar el arcivo Csv
     public String toCsv(){
         return "Calificacion 1: "+nota1+"\n"+
                 "calificacion 2: "+nota2+"\n"+
                 "Calificacion 3: "+nota3+"\n"+
                 "Promedio: "+Promedio()+"\n";
     }
+
+    //Genera el archivo Csv
     public void generarCsv() {
         try(BufferedWriter CSV = new BufferedWriter(new FileWriter("Archivo.csv"))){
             CSV.append(toCsv());
@@ -68,7 +78,8 @@ public class Promedio {
             System.out.println("Error al crear el archivo CSV...");
         }
     }
-    
+
+    //Método para crear el archivo .Json
     public void generarJson(){
         
         String json = "{\n" +
@@ -85,7 +96,8 @@ public class Promedio {
              System.out.println("Error al crear el archivo JSON...");
         }
     }
-    
+
+    //Este llama a todos los métodos que seran necesarios en cada opcion del menú
     public void Menu() throws IOException{
         do{
             System.out.println("MENU");
