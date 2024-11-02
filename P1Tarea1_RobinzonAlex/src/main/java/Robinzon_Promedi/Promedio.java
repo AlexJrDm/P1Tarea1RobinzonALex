@@ -20,7 +20,7 @@ public class Promedio {
     float nota1 = 0, nota2 = 0, nota3 = 0, promedio = 0;
     int opcMenu = 0;
 
-    //Método para ingresar notas y validar respectivamente
+    //Método para ingresar notas y validar
     //Tambien valida si aprueba o no aprueba
     public void ingresarNotas(){
         System.out.print("Ingrese calificacion 1: ");
@@ -60,7 +60,7 @@ public class Promedio {
         return promedio;
     }
 
-    //Este método retorna las calificaciones con su respetivos promedios correspondientes para poder
+    //Este método retorna las calificaciones con sus promedios correspondientes para poder
     //realizar el arcivo Csv
     public String toCsv(){
         return "Calificacion 1: "+nota1+"\n"+
